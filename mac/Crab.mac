@@ -1,0 +1,24 @@
+# The Crab has a flux of 9.7E^-2.1 ph/cm2/s/keV, the integrated flux is 0.69603351961 ph/cm2/s
+# Integrated over the surface of the emitting disk the rate is Pi*r2 * Flux = 492 ph/s
+# Simulation equivalent time = #events / 492
+# for 36 000 000 events, time = 73171 sec
+
+/random/setSeeds 122 222
+
+/gps/particle gamma
+/gps/pos/type Plane
+/gps/pos/shape Circle
+
+/gps/pos/centre 0. 0. 250. cm
+/gps/pos/radius 15 cm
+/gps/direction 0 0 -1
+
+/gps/polarization 1. 0. 0. # 90 deg
+
+/gps/ene/type Pow
+/gps/ene/min 10. keV
+/gps/ene/max 1. MeV
+/gps/ene/alpha -2.1
+
+#/run/beamOn 100
+/control/loop ../scripts/rotation_Crab.mac step 0. 360. 0.1

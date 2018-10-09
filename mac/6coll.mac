@@ -1,0 +1,19 @@
+/random/setSeeds 122 222
+
+/gps/particle gamma
+/gps/pos/type Plane
+/gps/pos/shape Circle
+
+# radioactive source Am241
+/gps/ang/type iso
+/gps/pos/radius 3.75 mm
+/gps/pos/centre 0. 0. 94.95 cm
+/gps/ang/maxtheta 11 deg    # opening angle of the source in the lead case
+
+# to use the recorded Am241 spectrum
+/gps/ene/type Arb
+/gps/hist/type arb
+/gps/hist/file ../data/spectrum_Am241.dat
+/gps/hist/inter	Lin
+
+/run/beamOn 400000000 # using the lead 6 collimators

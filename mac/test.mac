@@ -1,0 +1,15 @@
+/random/setSeeds 122 222
+
+/gps/particle gamma
+/gps/pos/type Surface
+#/gps/pos/type Volume
+/gps/pos/shape EllipticCylinder
+/gps/ene/mono 50 keV
+
+/gps/pos/centre 0. 0. 250. cm
+/gps/pos/halfx 15 cm
+/gps/pos/halfy  5 cm
+/gps/pos/halfz  10 cm
+/gps/direction 1 0 0
+
+/run/beamOn 1000

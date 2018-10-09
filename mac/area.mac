@@ -1,0 +1,15 @@
+# Surface of the emitting disk Pi*r2 = 706.858347058 cm2
+# Number of geantino particles emitted 1000000
+
+/random/setSeeds 122 222
+
+/gps/particle gamma
+/gps/pos/type Plane
+/gps/pos/shape Circle
+/gps/ene/mono 500 keV
+
+/gps/pos/centre 0. 0. 250. cm
+/gps/pos/radius 15 cm
+/gps/direction 0 0 -1
+
+/run/beamOn 1000000

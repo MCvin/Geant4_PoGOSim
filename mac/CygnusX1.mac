@@ -1,0 +1,24 @@
+# Cygnus X-1 has a flux of 2E^-1.7 ph/cm2/s/keV, the integrated flux is 0.484437 ph/cm2/s
+# Integrated over the surface of the emitting disk the rate is Pi*r2 * Flux = 342.5 ph/s
+# Simulation equivalent time = #events / 342.5
+# for 3 600 000 events, time = 10513 sec
+
+/random/setSeeds 122 222
+
+/gps/particle gamma
+/gps/pos/type Plane
+/gps/pos/shape Circle
+
+/gps/pos/centre 0. 0. 250. cm
+/gps/pos/radius 15 cm
+/gps/direction 0 0 -1
+
+/gps/polarization 1. 0. 0. # 90 deg
+
+/gps/ene/type Pow
+/gps/ene/min 10. keV
+/gps/ene/max 150. keV
+/gps/ene/alpha -1.7
+
+/control/loop ../scripts/rotation_CygnusX1.mac step 0. 360. 0.1
+#/run/beamOn 100

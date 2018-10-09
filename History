@@ -1,0 +1,19 @@
+
+     =========================================================
+     Geant4 - an Object-Oriented Toolkit for Simulation in HEP
+     =========================================================
+
+                    PoGOSim - History file
+                    ----------------------
+This file should be used by any user to briefly summarize all major 
+modifications introduced in the code and keep track of all tags.
+
+     ----------------------------------------------------------
+     * Reverse chronological order (last date on top), please *
+     ----------------------------------------------------------
+
+2013-09-10 Maxime Chauvin
+- PhysicsList: now use RegisterPhysics(new G4EmLivermorePolarizedPhysics());
+
+2013-09-04 Maxime Chauvin
+- Created.

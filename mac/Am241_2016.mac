@@ -1,0 +1,4 @@
+/random/setSeeds 130 222
+/PrimaryGenerator/file ../data/Am241_2016.dat
+#/run/beamOn 100 # for visualisation
+/run/beamOn 10000000

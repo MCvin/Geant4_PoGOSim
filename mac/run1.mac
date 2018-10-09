@@ -1,0 +1,71 @@
+/random/setSeeds 122 222
+
+/gps/particle gamma
+/gps/pos/type Plane
+/gps/pos/shape Circle
+
+# beam source
+#/gps/pos/centre 0. 0. 100. cm
+##/gps/pos/radius 1.15 cm
+#/gps/pos/radius 18 cm
+#/gps/direction 0 0 -1
+
+# radioactive source Am241
+/gps/ang/type iso
+/gps/pos/radius 3.75 mm       # Am241
+#/gps/pos/radius 0.11 cm
+
+/gps/pos/centre 0. 0. 85. cm # 5cm above the slow, unit 0 (top PDC is at 80 cm)
+#/gps/pos/centre 0. 0. 88.625 cm # position of the source for 1 collimator
+#/gps/pos/centre 0.84 0. 99.375 cm # position of the source for 6 collimators 2014/09/01 tilt=0.6degrees
+#/gps/pos/centre 0. 0. 99.375 cm # position of the source for 6 collimators 2014/09/01
+#/gps/pos/centre 0.5 0. 95. cm # 15cm above the slow, unit 0 (top PDC is at 80 cm)
+#/gps/pos/centre -3.0 10.3923 95. cm # 15cm above the slow, unit 54
+
+#/gps/ang/maxtheta 0.68 deg  # opening angle of the central unit (6 collimators) (to use with radius 0.11cm)
+#/gps/ang/maxtheta 4.00 deg  # opening angle of the source for 6 collimators
+#/gps/ang/maxtheta 9.10 deg  # opening angle of the source for 1 collimator
+/gps/ang/maxtheta 11 deg    # opening angle of the source in the lead case
+#/gps/ang/maxtheta 20. deg    # opening angle of the source
+
+#/gps/pos/rot2 0. .99996192531009606001 .00872627813709078914  # source tilted by 0.5 deg
+#/gps/pos/rot2 0. .99984770413974826261 .01745189177351340777  # source tilted by 1.0 deg
+
+# scatter piece
+#/gps/pos/centre 0. -4.35 84.85 cm        # scatter piece, unit 0
+#/gps/pos/rot2 0 0 1					# source tilted by 90 deg
+#/gps/ang/maxtheta 11. deg
+
+# polarization seems to work only with beam source
+#/gps/polarization 1. 0. 0. # 0 deg
+#/gps/polarization 1. 1. 0. # 45 deg
+#/gps/polarization 0. 1. 0. # 90 deg
+
+#/gps/ene/type Pow
+#/gps/ene/min 20. keV
+#/gps/ene/max 1. MeV
+#/gps/ene/alpha -2.1
+
+#/process/em/fluo true
+#/process/em/auger true
+#/process/em/pixe true
+
+#/gps/ene/mono 59.5 keV
+#/gps/ene/mono 26.3 keV
+
+# to use the recorded Am241 spectrum
+/gps/ene/type Arb
+/gps/hist/type arb
+/gps/hist/file ../spectrum_Am241.dat
+/gps/hist/inter	Lin
+
+#/detector/SetPolarimeterRot 40 deg
+#/detector/SetElevation -0.6 deg
+
+#/run/beamOn 10000
+#/run/beamOn 1000000
+#/run/beamOn 400000000 # using the lead 6 collimators
+#/run/beamOn 2147483647 #maximum number of events
+
+#/control/loop ../rotation.mac step 0. 360. 0.1
+/control/loop ../scatterpiecerotation.mac step 0. 360. 0.1
