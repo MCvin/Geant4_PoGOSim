@@ -36,12 +36,9 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
       asciiFile->clear(); asciiFile->seekg(0);  // clear the failed eof state and rewind the stream to the beginning
       (*asciiFile) >> energy >> position >> momentumDirection >> polarization;
     }
-    // Z position of top of Mylar = 819.01*mm
-    position.setZ(850.0*mm); // Z position of the scattered source output from the rotation + shutter holder 20160626
-    //position.setZ(854.0*mm); // Z position of the scattered source output from the rotation + shutter holder 20160317
-    //position.setZ(1014.0*mm); // Z position of the 2016 source output from the rotation + shutter holder 20160317
-    //position += G4ThreeVector(0.0*mm,56.0*mm,0.0*mm); // for ring 2 centering
-    //position += G4ThreeVector(0.0*mm,-90.0*mm,0.0*mm); // for unit 28 centering
+    position.setZ(854.0*mm); // Z position of the 2016 scattered source output from the rotation frame
+    //position.setZ(1014.0*mm); // Z position of the 2016 source output from the rotation frame
+    //position += G4ThreeVector(0.0*mm,56.0*mm,854.0*mm); // for ring 2 centering
     //G4cout << energy << position << momentumDirection << polarization << G4endl;
     particleGun->SetParticleEnergy(energy*keV);
     particleGun->SetParticlePosition(position);

@@ -123,7 +123,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Material * EJ204 = G4Material::GetMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
 
   //-------------------- Create the World Volume ----------------------------------
-  const G4double WorldSize  = 600.0*cm; 
+  const G4double WorldSize  = 600.0*cm;
   G4Box* s_World = new G4Box("World", WorldSize/2, WorldSize/2, WorldSize/2);
   G4LogicalVolume* l_World = new G4LogicalVolume(s_World, air_3hPa, "World");
   G4VPhysicalVolume* p_World = new G4PVPlacement(0,	G4ThreeVector(), l_World, "World", NULL, false, 0, overlap_check);
@@ -132,7 +132,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   const G4String Atmosname = "Atmosphere";
   G4Tubs* s_Atmos = new G4Tubs(Atmosname, 0.0*mm, 200.0*cm, 1./2*cm, 0.*deg, 360.*deg);
   G4LogicalVolume* l_Atmos = new G4LogicalVolume(s_Atmos, atmos, Atmosname);
-  new G4PVPlacement(0, G4ThreeVector(0.0*mm,0.0*mm,200.0*cm), l_Atmos, Atmosname, l_World, false, 0, overlap_check);
+  // new G4PVPlacement(0, G4ThreeVector(0.0*mm,0.0*mm,200.0*cm), l_Atmos, Atmosname, l_World, false, 0, overlap_check);
 
   //-------------------- Create POGO mother volume --------------------------------
   G4Box* s_Pogo = new G4Box("Pogo", 95*cm,95*cm,95*cm);
@@ -221,7 +221,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
       // SAS edge back bone
       const G4String SASedgeBoneName = "SASedgeBone";
       G4Box* s_SASedgeBone = new G4Box(SASedgeBoneName, 0.49*cm, 1.465*cm, 30.0*cm);
-      G4LogicalVolume* l_SASedgeBone = new G4LogicalVolume(s_SASedgeBone, Al_6061, SASedgeBoneName);  
+      G4LogicalVolume* l_SASedgeBone = new G4LogicalVolume(s_SASedgeBone, Al_6061, SASedgeBoneName);
       new G4PVPlacement(0, G4ThreeVector(1.5*cm,0.0*cm,9.6*cm), l_SASedgeBone, SASedgeBoneName, l_SASedgeUnit, false, 0, overlap_check);
 
       // SAS edge
@@ -229,7 +229,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
       G4Box* s1_SASedge = new G4Box("SASedge_box", 1.5*cm, 1.465*cm, 30.0*cm);
       G4Tubs* s2_SASedge = new G4Tubs("SASedge_cyl", 0.0*cm, 1.691*cm, 30.0*cm, -60.0*deg, 120.0*deg);
       G4UnionSolid* s_SASedge = new G4UnionSolid(SASedgeName, s1_SASedge, s2_SASedge, 0, G4ThreeVector(-2.345*cm,0.0*cm,0.0*cm));
-      G4LogicalVolume* l_SASedge = new G4LogicalVolume(s_SASedge, BGO, SASedgeName);  
+      G4LogicalVolume* l_SASedge = new G4LogicalVolume(s_SASedge, BGO, SASedgeName);
       new G4PVPlacement(0, G4ThreeVector(-0.5*cm,0.0*cm,9.6*cm), l_SASedge, SASedgeName, l_SASedgeUnit, false, 0, overlap_check);
 
       // SAS bottom edge
@@ -252,7 +252,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
       const G4String SAScornerBoneName = "SAScornerBone";
       G4Box* s1_SAScornerBone = new G4Box(SAScornerBoneName, 0.49*cm, 1.69*cm, 30.0*cm);
       G4UnionSolid* s_SAScornerBone = new G4UnionSolid(SAScornerBoneName, s1_SAScornerBone, s1_SAScornerBone, zRot60, G4ThreeVector(-1.21858*cm,-2.11065*cm,0.0*cm));
-      G4LogicalVolume* l_SAScornerBone = new G4LogicalVolume(s_SAScornerBone, Al_6061, SAScornerBoneName);  
+      G4LogicalVolume* l_SAScornerBone = new G4LogicalVolume(s_SAScornerBone, Al_6061, SAScornerBoneName);
       new G4PVPlacement(zRot240, G4ThreeVector(-1.218*cm,2.148*cm,9.6*cm), l_SAScornerBone, SAScornerBoneName, l_SAScornerUnit, false, 0, overlap_check);
 
       // SAS corner
@@ -515,4 +515,3 @@ void DetectorConstruction::SetElevation(G4double delta)
   G4VVisManager* pVVisManager = G4VVisManager::GetConcreteInstance();
   if(pVVisManager) pVVisManager->GeometryHasChanged();
 }
-

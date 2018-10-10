@@ -1,0 +1,211 @@
+# These sources have an integrated flux of 7.9783 ph/cm2/s
+# This flux is particles that goes through 1cm2 each second from every direction.
+# Integrated over the surface of the emitting sphere the rate is Flux * 4*Pi*r2
+# To save time we simulate only particles that goes inward the sphere so the rate is half: Flux/2 * 4*Pi*r2 = 1 127 905.6 ph/s
+# Simulation equivalent time = #events / 1 127 905.6
+# for 3 600 000 000 events, time = 3191.7 sec
+
+/PoGO+/SetElevation 40 deg
+
+##Source 1 Upward shooting hemisphere with energies between 30 keV and 20 MeV
+
+/gps/source/add 5808
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -1.34
+/gps/ene/min 30.0 keV
+/gps/ene/max 20.0 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.75 0.
+/gps/hist/point 1. 1.
+
+##Source 1.1 Upward shooting hemisphere with energies between 30 keV and 20 MeV
+
+/gps/source/add 2904
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -1.34
+/gps/ene/min 30.0 keV
+/gps/ene/max 20.0 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 0.
+/gps/hist/point 0.75 1.
+/gps/hist/point 1.0 0.
+
+##Source 2 Upward shooting hemisphere with energies between 20 MeV and 1 GeV
+
+/gps/source/add 238
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -2.00
+/gps/ene/min 20.0 MeV
+/gps/ene/max 1.0 GeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.75 0.
+/gps/hist/point 1. 1.
+
+##Source 2.1 Upward shooting hemisphere with energies between 20 MeV and 1 GeV
+
+/gps/source/add 119
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -2.00
+/gps/ene/min 20.0 MeV
+/gps/ene/max 1.0 GeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 0.
+/gps/hist/point 0.75 1.
+/gps/hist/point 1.0 0.
+
+##Source 3 Upwards shooting hemisphere emitting 511 keV line
+
+/gps/source/add 313
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/mono 511 keV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.75 0.
+/gps/hist/point 1. 1.
+
+##Source 3.1 Upwards shooting hemisphere emitting 511 keV line
+
+/gps/source/add 157
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/mono 511 keV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 0.
+/gps/hist/point 0.75 1.
+/gps/hist/point 1.0 0.
+
+
+##Source 4 Downward shooting hemisphere with energies between 30 keV and 45 keV
+
+/gps/source/add 339
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -0.75
+/gps/ene/min 30.0 keV
+/gps/ene/max 45.0 keV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 1.
+/gps/hist/point 1. 0.
+
+##Source 5 Downward shooting hemisphere with energies between 45 keV and 150 keV
+
+/gps/source/add 1251
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -1.2
+/gps/ene/min 45.0 keV
+/gps/ene/max 150.0 keV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 1.
+/gps/hist/point 1. 0.
+
+##Source 6 Downward shooting hemisphere with energies between 150 keV and 100 MeV
+
+/gps/source/add 1333
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -1.7
+/gps/ene/min 150.0 keV
+/gps/ene/max 100.0 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 1.
+/gps/hist/point 1. 0.
+
+##Source 7 Downwards shooting hemisphere emitting 511 keV line
+
+/gps/source/add 78
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0.0 0.0 0.0 m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/mono 511 keV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 1.
+/gps/hist/point 1. 0.
+
+/process/em/fluo true
+/process/em/auger true
+/process/em/pixe true
+
+#/run/beamOn 100
+#/run/beamOn 5000000000
+/control/loop ../scripts/rotation_float.mac step 0. 360. 0.1
