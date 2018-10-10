@@ -1,0 +1,165 @@
+# These sources have an integrated flux of 1.86217 neutron/cm2/s
+# This flux is particles that goes through 1cm2 each second from every direction.
+# Integrated over the surface of the emitting sphere the rate is Flux * 4*Pi*r2
+# To save time we simulate only particles that goes inward the sphere so the rate is half: Flux/2 * 4*Pi*r2 = 263 258 neutron/s
+# Simulation equivalent time = #events / 263 258
+# for 147 000 000 events, time = 558.4 sec
+
+/PoGO+/SetElevation 40 deg
+
+##Source 1 Downwards shooting hemisphere with energies between 8 keV and 0.9 MeV 
+/gps/source/add 5.7
+/gps/particle neutron
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0. m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -0.738
+/gps/ene/min 8 keV
+/gps/ene/max 0.9 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 1.
+/gps/hist/point 1. 0.
+
+##Source 2 Upwards shooting hemisphere with energies between 8 keV and 0.9 MeV 
+/gps/source/add 22.6
+/gps/particle neutron
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0. m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -0.53
+/gps/ene/min 8 keV
+/gps/ene/max 0.9 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 0.
+/gps/hist/point 1. 1.
+
+##Source 3 Downwards shooting hemisphere with energies between 0.9MeV and 15 MeV 
+/gps/source/add 4.2
+/gps/particle neutron
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0. m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -1.17
+/gps/ene/min 0.9 MeV
+/gps/ene/max 15.0 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 1.
+/gps/hist/point 1. 0.
+
+##Source 4 Upwards shooting hemisphere with energies between 0.9 MeV and 15 MeV 
+/gps/source/add 26.7
+/gps/particle neutron
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0. m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -1.17
+/gps/ene/min 0.9 MeV
+/gps/ene/max 15.0 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 0.
+/gps/hist/point 1. 1.
+
+##Source 5 Downwards shooting hemisphere with energies between 15 MeV and 70 MeV 
+/gps/source/add 1.6
+/gps/particle neutron
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0. m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -0.93
+/gps/ene/min 15.0 MeV
+/gps/ene/max 70.0 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 1.
+/gps/hist/point 1. 0.
+
+##Source 6  Upwards shooting hemisphere with energies between 15 MeV and 70 MeV 
+/gps/source/add 16.8
+/gps/particle neutron
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0. m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -0.53
+/gps/ene/min 15.0 MeV
+/gps/ene/max 70.0 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 0.
+/gps/hist/point 1. 1.
+
+##Source 7 Downwards shooting hemisphere with energies between 70 MeV and 1 GeV 
+/gps/source/add 2.3
+/gps/particle neutron
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0. m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -1.19
+/gps/ene/min 70.0 MeV
+/gps/ene/max 1000.0 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 1.
+/gps/hist/point 1. 0.
+
+##Source 8 Upwards shooting hemisphere with energies between 70 MeV and 1 GeV
+/gps/source/add 13.7
+/gps/particle neutron
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0. m
+/gps/pos/radius 1.5 m
+/gps/ang/type cos
+
+/gps/ene/type Pow
+/gps/ene/alpha -2.05
+/gps/ene/min 70.0 MeV
+/gps/ene/max 1000.0 MeV
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 0.
+/gps/hist/point 1. 1.
+
+
+#/run/beamOn 100
+#/run/beamOn 147000000
+/control/loop ../scripts/rotation_neutronBg13th_12.mac step 0. 360. 0.1

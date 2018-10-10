@@ -54,7 +54,8 @@
 #include "G4UImanager.hh"
 
 #include "DetectorConstruction.hh"
-#include "PhysicsList.hh"
+#include "QGSP_BERT_HP.hh"
+#include "G4RadioactiveDecayPhysics.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
 #include "EventAction.hh"
@@ -105,7 +106,8 @@ int main(int argc, char** argv) {
   DetectorConstruction* detector = new DetectorConstruction();
   runManager->SetUserInitialization(detector);
 
-  PhysicsList* physics = new PhysicsList();
+  QGSP_BERT_HP* physics = new QGSP_BERT_HP();
+  physics->RegisterPhysics(new G4RadioactiveDecayPhysics());
   runManager->SetUserInitialization(physics);
 
   //set user action classes

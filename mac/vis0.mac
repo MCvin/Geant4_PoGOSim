@@ -10,7 +10,7 @@
 /vis/scene/add/hits
 /vis/scene/endOfEventAction accumulate 1000
 
-#/control/execute ../scripts/PoGO_float.mac
+#/control/execute ../scripts/neutronBg13th_12.mac
 
 # run this when in the OGL window for animation
 #/control/loop ../scripts/rotation.mac step 0. 360. 1
