@@ -26,8 +26,20 @@ endif()
 # Find ROOT package
 #
 if(useROOT)
-  find_package(ROOT)
-  include_directories(${ROOT_INCLUDE_DIR})
+  # You need to tell CMake where to find the ROOT installation. This can be done in a number of ways:
+  #   - ROOT built with classic configure/make use the provided $ROOTSYS/etc/cmake/FindROOT.cmake
+  #   - ROOT built with CMake. Add in CMAKE_PREFIX_PATH the installation prefix for ROOT
+  list(APPEND CMAKE_PREFIX_PATH $ENV{ROOTSYS})
+  #---Locate the ROOT package and defines a number of variables (e.g. ROOT_INCLUDE_DIRS)
+  find_package(ROOT REQUIRED)
+  #include_directories(${ROOT_INCLUDE_DIR})
+  include_directories(${ROOT_INCLUDE_DIRS})
+
+  IF(ROOT_INCLUDE_DIRS)
+    MESSAGE("Your current ROOT version is ${ROOT_VERSION}")
+  ELSE()
+    MESSAGE("ROOT not found! Please install Root and make it available in PATH")
+  ENDIF()
 endif(useROOT)
 
 #----------------------------------------------------------------------------
@@ -49,5 +61,6 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #
 add_executable(${name} ${name}.cc ${sources} ${headers})
 target_link_libraries(${name} ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
+
 #message(STATUS "${Geant4_LIBRARIES}")
 #message(STATUS "${Geant4_USE_FILE}")

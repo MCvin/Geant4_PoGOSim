@@ -59,10 +59,8 @@
 #include "RunAction.hh"
 #include "EventAction.hh"
 
-#ifdef G4VIS_USE
- #include "G4VisExecutive.hh"
- #include "G4UIExecutive.hh"
-#endif
+#include "G4VisExecutive.hh"
+#include "G4UIExecutive.hh"
 
 int main(int argc, char** argv) {
 
@@ -125,16 +123,14 @@ int main(int argc, char** argv) {
   G4UImanager* UIm = G4UImanager::GetUIpointer();  
   
   if (argc==1) {// interactive mode
-  #ifdef G4VIS_USE
     event_action->CreateROOTFile("vis.root");
     G4VisManager* visManager = new G4VisExecutive;
     visManager->Initialize();
     G4UIExecutive* UIi = new G4UIExecutive(argc, argv);
-    UIm->ApplyCommand("/control/execute ../scripts/vis0.mac");
+    UIm->ApplyCommand("/control/execute ../mac/vis.mac");
     UIi->SessionStart();
     delete UIi;
     delete visManager;
-  #endif
   }
   else if (argc==3) {// batch mode
     G4String ext_root = ".root";
